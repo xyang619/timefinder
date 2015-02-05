@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6FE3B4221A68E532007355F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FE3B4211A68E532007355F2 /* main.cpp */; };
+		6F9EEF2C1A8382BB0037EAF9 /* ModelEval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EEF2A1A8382BB0037EAF9 /* ModelEval.cpp */; };
+		6F9EEF2E1A83AD850037EAF9 /* Distribution.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EEF2D1A83AD850037EAF9 /* Distribution.cpp */; };
+		6FCD60F51A7339AE00648C7A /* TimeFinder2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD60F11A7339AE00648C7A /* TimeFinder2.cpp */; };
+		6FCD60F61A7339AE00648C7A /* TimeFinder3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD60F21A7339AE00648C7A /* TimeFinder3.cpp */; };
+		6FCD60F71A7339AE00648C7A /* TimeFinder4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD60F31A7339AE00648C7A /* TimeFinder4.cpp */; };
+		6FCD60F81A7339AE00648C7A /* TimeFinder5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD60F41A7339AE00648C7A /* TimeFinder5.cpp */; };
+		6FCDF9FB1A81ED5F00B68D07 /* WaveScanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FCDF9F91A81ED5F00B68D07 /* WaveScanner.cpp */; };
+		6FE3B4221A68E532007355F2 /* TimeFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FE3B4211A68E532007355F2 /* TimeFinder.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +30,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F9EEF2A1A8382BB0037EAF9 /* ModelEval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelEval.cpp; sourceTree = "<group>"; };
+		6F9EEF2B1A8382BB0037EAF9 /* ModelEval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelEval.h; sourceTree = "<group>"; };
+		6F9EEF2D1A83AD850037EAF9 /* Distribution.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Distribution.cpp; sourceTree = "<group>"; };
+		6FCD60F11A7339AE00648C7A /* TimeFinder2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeFinder2.cpp; sourceTree = "<group>"; };
+		6FCD60F21A7339AE00648C7A /* TimeFinder3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeFinder3.cpp; sourceTree = "<group>"; };
+		6FCD60F31A7339AE00648C7A /* TimeFinder4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeFinder4.cpp; sourceTree = "<group>"; };
+		6FCD60F41A7339AE00648C7A /* TimeFinder5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeFinder5.cpp; sourceTree = "<group>"; };
+		6FCDF9F91A81ED5F00B68D07 /* WaveScanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveScanner.cpp; sourceTree = "<group>"; };
+		6FCDF9FA1A81ED5F00B68D07 /* WaveScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveScanner.h; sourceTree = "<group>"; };
 		6FE3B41E1A68E532007355F2 /* TimeFinder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TimeFinder; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FE3B4211A68E532007355F2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6FE3B4211A68E532007355F2 /* TimeFinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TimeFinder.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +73,16 @@
 		6FE3B4201A68E532007355F2 /* TimeFinder */ = {
 			isa = PBXGroup;
 			children = (
-				6FE3B4211A68E532007355F2 /* main.cpp */,
+				6F9EEF2D1A83AD850037EAF9 /* Distribution.cpp */,
+				6FCD60F11A7339AE00648C7A /* TimeFinder2.cpp */,
+				6FCD60F21A7339AE00648C7A /* TimeFinder3.cpp */,
+				6FCD60F31A7339AE00648C7A /* TimeFinder4.cpp */,
+				6FCD60F41A7339AE00648C7A /* TimeFinder5.cpp */,
+				6FE3B4211A68E532007355F2 /* TimeFinder.cpp */,
+				6FCDF9F91A81ED5F00B68D07 /* WaveScanner.cpp */,
+				6F9EEF2A1A8382BB0037EAF9 /* ModelEval.cpp */,
+				6F9EEF2B1A8382BB0037EAF9 /* ModelEval.h */,
+				6FCDF9FA1A81ED5F00B68D07 /* WaveScanner.h */,
 			);
 			path = TimeFinder;
 			sourceTree = "<group>";
@@ -118,7 +143,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FE3B4221A68E532007355F2 /* main.cpp in Sources */,
+				6FE3B4221A68E532007355F2 /* TimeFinder.cpp in Sources */,
+				6F9EEF2E1A83AD850037EAF9 /* Distribution.cpp in Sources */,
+				6F9EEF2C1A8382BB0037EAF9 /* ModelEval.cpp in Sources */,
+				6FCD60F61A7339AE00648C7A /* TimeFinder3.cpp in Sources */,
+				6FCD60F51A7339AE00648C7A /* TimeFinder2.cpp in Sources */,
+				6FCDF9FB1A81ED5F00B68D07 /* WaveScanner.cpp in Sources */,
+				6FCD60F81A7339AE00648C7A /* TimeFinder5.cpp in Sources */,
+				6FCD60F71A7339AE00648C7A /* TimeFinder4.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +264,7 @@
 				6FE3B4271A68E532007355F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
