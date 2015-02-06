@@ -144,7 +144,7 @@ int main(int argc, char **argv)
         help();
         exit(0);
     }
-    if (argc < 10)
+    if (argc < 9)
     {
         cerr << "More arguments required, please use -h or --help to get help" << endl;
         exit(1);
