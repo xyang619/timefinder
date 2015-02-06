@@ -124,21 +124,32 @@ GeneralModel::GeneralModel(int K, int T, const std::string & modelfile):K_(K),T_
     init();
 }
 
-GeneralModel::GeneralModel(const GeneralModel & gm)
+GeneralModel::GeneralModel(const GeneralModel & gm):K_(gm.K_), T_(gm.T_), labels_(gm.labels_)
 {
-    
+    clean();
 }
 
 GeneralModel & GeneralModel::operator=(const GeneralModel & gm){
+    if (&gm == this) {
+        return *this;
+    }
     return *this;
 }
 
 GeneralModel::~GeneralModel(){
-    
+    clean();
 }
 
-double GeneralModel::dist(double x, double cutoff) const{
-    return 0;
+double GeneralModel::dist(double x, int j, double cutoff) const{
+    double num = 0;
+    double den = 0;
+    for (int t = 0; t < T_; ++t)
+    {
+        double tmp = h_[j][t] * u_[j][t];
+        num += tmp * u_[j][t] * exp(-u_[j][t] * x);
+        den += tmp * exp(-u_[j][t] * cutoff);
+    }
+    return num / den;
 }
 
 void GeneralModel::readModel(const std::string & modelfile){
@@ -152,7 +163,7 @@ void GeneralModel::readModel(const std::string & modelfile){
     for (int i = 0; i < K_; ++i)
     {
         fin >> label;
-        labels.push_back(label);
+        labels_.push_back(label);
     }
     //read proportions m_ij
     m_ = new double *[K_];
@@ -240,6 +251,21 @@ void GeneralModel::init(){
     calUt();
 }
 
+void GeneralModel::clean(){
+    if (m_) {
+        for (int i = 0; i < K_; ++i) {
+            delete [] m_[i];
+            delete [] M_[i];
+            delete [] h_[i];
+            delete [] u_[i];
+        }
+        delete [] I_;
+        delete [] m_;
+        delete [] M_;
+        delete [] h_;
+        delete [] u_;
+    }
+}
 //test cases
 int main(int argc, char **argv){
     vector<double> observ;

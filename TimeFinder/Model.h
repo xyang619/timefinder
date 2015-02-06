@@ -79,17 +79,18 @@ public:
     GeneralModel(const GeneralModel & gm);
     GeneralModel & operator=(const GeneralModel & gm);
     ~GeneralModel();
-    double dist(double x, double cutoff = 0) const;
+    double dist(double x, int j, double cutoff = 0) const;
 private:
     void init();
     void calIt();
     void calMt();
     void calHt();
     void calUt();
+    void clean();
     void readModel(const std::string & modelfile);
     int K_;
     int T_;
-    std::vector<std::string> labels;
+    std::vector<std::string> labels_;
     double *I_;
     double **m_;
     double **M_;
