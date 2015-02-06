@@ -1,5 +1,8 @@
 
 #include <iostream>
+#include <sstream>
+
+using namespace std;
 
 class A{
 public:
@@ -57,9 +60,9 @@ int C1::f() const{
 int main(){
     B *t1 = new C(1);
     A *t2 = new C1(2);
-    std::cout << t1->f() <<" " << t2->f();
+    cout << t1->f() <<" " << t2->f();
     t1->setX(10);
-    std::cout << t1->f() <<std::endl;
+    cout << t1->f() <<endl;
     delete t1;
     delete t2;
 }

@@ -82,9 +82,14 @@ public:
     double dist(double x, double cutoff = 0) const;
 private:
     void init();
+    void calIt();
+    void calMt();
+    void calHt();
+    void calUt();
     void readModel(const std::string & modelfile);
     int K_;
     int T_;
+    std::vector<std::string> labels;
     double *I_;
     double **m_;
     double **M_;

@@ -8,7 +8,9 @@
 
 #include "Model.h"
 #include <cmath>
+#include <cstdlib>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -116,11 +118,14 @@ double CGFDModel::dist(double x, double cutoff) const
 }
 
 
-GeneralModel::GeneralModel(int K, int T, const std::string & modelfile){
-    
+GeneralModel::GeneralModel(int K, int T, const std::string & modelfile):K_(K),T_(T)
+{
+    readModel(modelfile);
+    init();
 }
 
-GeneralModel::GeneralModel(const GeneralModel & gm){
+GeneralModel::GeneralModel(const GeneralModel & gm)
+{
     
 }
 
@@ -135,11 +140,104 @@ GeneralModel::~GeneralModel(){
 double GeneralModel::dist(double x, double cutoff) const{
     return 0;
 }
-void GeneralModel::init(){
-    
-}
+
 void GeneralModel::readModel(const std::string & modelfile){
-    
+    fstream fin(modelfile.c_str());
+    if (!fin.is_open()){
+        cout << "Can't read model from file " << modelfile << endl;
+        exit(1);
+    }
+    //read labels
+    string label;
+    for (int i = 0; i < K_; ++i)
+    {
+        fin >> label;
+        labels.push_back(label);
+    }
+    //read proportions m_ij
+    m_ = new double *[K_];
+    for (int i = 0; i < K_; ++i)
+    {
+        m_[i] = new double[T_];
+    }
+    for (int t = 0; t < T_; ++t)
+    {
+        for (int i = 0; i < K_; ++i)
+        {
+            fin >> m_[i][t];
+        }
+    }
+    fin.close();
+}
+//equation 1
+void GeneralModel::calIt()
+{
+    I_ = new double [T_];
+    for (int t = 0; t < T_; ++t)
+    {
+        I_[t] = 0;
+        for (int i = 0; i < K_; ++i)
+        {
+            I_[t] += m_[i][t];
+        }
+        I_[t] = 1 - I_[t];
+    }
+}
+
+//equation 2
+void GeneralModel::calMt(){
+    M_ = new double *[K_];
+    for (int i = 0; i < K_; ++i) {
+        M_[i] = new double[T_];
+    }
+    for (int i = 0; i < K_; ++i)
+    {
+        M_[i][0] = M_[i][0];
+        for (int t = 1; t < T_; ++t)
+        {
+            M_[i][t] = M_[i][t - 1] * I_[t] + m_[i][t];
+        }
+    }
+}
+
+//equation 4
+void GeneralModel::calHt(){
+    h_ = new double *[K_];
+    for (int i = 0; i < K_; ++i) {
+        h_[i] = new double[T_];
+    }
+    double tmp = 1;
+    for (int t = T_ - 1; t >= 0; --t)
+    {
+        for (int i = 0; i < K_; ++i)
+        {
+            h_[i][t] = m_[i][t] * tmp;
+        }
+        tmp *= I_[t];
+    }
+}
+
+//equation 3
+void GeneralModel::calUt(){
+    u_ = new double *[K_];
+    for (int i = 0; i < K_; ++i) {
+        u_[i] = new double[T_];
+    }
+    for (int i = 0; i < K_; ++i)
+    {
+        u_[i][T_ - 1] = 1 - M_[i][T_ - 1];
+        for (int t = T_ - 2; t >= 0; --t)
+        {
+            u_[i][t] = 1 - M_[i][t] + u_[i][t + 1];
+        }
+    }
+}
+
+void GeneralModel::init(){
+    calIt();
+    calMt();
+    calHt();
+    calUt();
 }
 
 //test cases
