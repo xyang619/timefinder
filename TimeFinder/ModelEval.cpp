@@ -15,7 +15,7 @@
 #include "ModelEval.h"
 
 using namespace std;
-
+const string kVersion = "0.0.1";
 //equation 1
 void iherP(double **mat, int K, int T, double *it)
 {
@@ -126,7 +126,7 @@ double loglik(double *ht, double *ut, int T, double cutoff, const vector<double>
 
 void help()
 {
-    cout << "ModelEvaluator" << endl;
+    cout << "ModelEvaluator version " << kVersion << endl;
     cout << "ModelEvaluator is designed to evaluate the fittness of model and data" << endl;
     cout << "Arguments" << endl;
     cout << "   -h/--help   print help message [optional]" << endl;

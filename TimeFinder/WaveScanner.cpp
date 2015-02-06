@@ -20,7 +20,7 @@
 using namespace std;
 const double kDelta = 0.000001; //converge condition
 const double kminP = 0.01;      //minimum proportion for a wave
-const string VERSION = "0.0.1";
+const string kVersion = "0.0.1";
 
 //implementation of class ParamExp
 //constructor
@@ -273,7 +273,7 @@ inline double max(double a, double b){
 }
 
 void help() {
-    cout << "WaveScanner Version " << VERSION << endl;
+    cout << "WaveScanner version " << kVersion << endl;
     cout << "WaveScanner is used to scan the number of waves and estimate parameters" << endl;
     cout << "Arguments:" << endl;
     cout << "   -h/--help   print help message [optional]" << endl;
