@@ -28,7 +28,7 @@
 
 using namespace std;
 
-const string VERSION "0.0.6p";
+const string VERSION = "0.0.6p";
 void help();
 int indexOfMax(double * data, int size);
 double sum(vector<double> segs);
