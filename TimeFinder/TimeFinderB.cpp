@@ -4,7 +4,7 @@
  // Version     :
  // Copyright   : GNU GPL V2
  // Description : Search best model and estimate parameter
- // Using parallel computing
+ // Using binary search
  //  Created by young on 1/21/15.
  //  Copyright (c) 2015 young. All rights reserved.
  
