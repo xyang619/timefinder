@@ -130,7 +130,7 @@ int main(int argc, char ** argv)
     double m = sumLens[labels.at(0)] / (sumLens[labels.at(0)] + sumLens[labels.at(1)]);
     string pop1 = "";
     string pop2 = "";
-    //deside which one is population 1
+    //decide which one is population 1
     if (m < 0.5)
     {
         pop1 = labels.at(0);
