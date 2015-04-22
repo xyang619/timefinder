@@ -13,6 +13,8 @@
  L=L(pop1)+L(pop2), under HI, GA, CGFR, CGFD model;
  3)choose the one with highest likelihood as the best model, and the
  estimated generation as the final result.
+ Update 7: 2015-4-22
+ Consider chromosome length L, distributions and likelihood are all modified
  ============================================================================*/
 
 #include <iostream>
